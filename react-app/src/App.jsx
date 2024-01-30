@@ -7,24 +7,25 @@ import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-do
 // Component imports
 import HomePage from './components/HomePage/HomePage'
 import NavBar from './components/NavBar/NavBar'
-import Login from './components/Entry/Login'
+import Student from './components/Entry/Student'
 
-function App() {  
+function App() {
   // ignore navbar for login and register page
   const placeNavBarHere = () => {
-    if (window.location.pathname === '/login'|| window.location.pathname === '/register') {
+    if (window.location.pathname === '/studentlogin' || window.location.pathname === '/adminlogin') {
       return null
     }
     return <NavBar />
   }
   return (
     <>
-      {placeNavBarHere()}
       <Router >
+        { placeNavBarHere() }
         <Routes>
-          <Route exact path="/" element={<HomePage/>} />
-          <Route exact path="/home" element={<HomePage/>} />
-          <Route exact path="/login" element={<Login/>} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/home" element={<HomePage />} />
+          <Route exact path="/student" element={<Student />} />
+          <Route exact path="/admin" element={<Admin />} />
         </Routes>
       </Router>
     </>

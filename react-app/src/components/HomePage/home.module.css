@@ -1,65 +1,22 @@
-/* Reset default styles */
-body, html {
-    margin: 0;
-    padding: 0;
-}
-
-/* Container for the home page */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Heading styles */
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* Navigation styles */
-.navbar {
-    background-color: #f2f2f2;
-    padding: 10px;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px;
-}
-
-/* Main content styles */
-.main-content {
-    margin-top: 20px;
-}
-
-/* Footer styles */
-.footer {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-}
-
-.home-page-image-container {
+.homePage {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
-    background-color: #f2f2f2;
+}
+
+/* central banner */
+.banner {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #000,  #ffffff, #000000);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

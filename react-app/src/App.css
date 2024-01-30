@@ -3,22 +3,3 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
 }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-header {
-  background-color: #f8f9fa;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-footer {
-  background-color: #f8f9fa;
-  padding: 20px;
-  margin-top: 20px;
-  text-align: center;
-}
