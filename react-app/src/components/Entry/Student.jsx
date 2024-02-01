@@ -1,41 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+
+import s from './entry.module.css'
+
+import StudentLogin from './StudentLogin'
+import StudentRegistration from './StudentRegistration'
 
 const Student = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+	const [showStudentLogin, setShowStudentLogin] = useState(true)
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
-    };
+	const toggleStudentComponent = () => {
+		setShowStudentLogin(!showStudentLogin)
+	}
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+	return (
+		<div className={s.formContainer}>
+			{showStudentLogin ? <StudentLogin /> : <StudentRegistration />}
+			<button onClick={toggleStudentComponent}>
+				{showStudentLogin ? 'New user?' : 'Already have an account?'}
+			</button>
+		</div>
+	)
+}
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // TODO: Implement login logic here
-    };
-
-    return (
-        <div>
-            <h2>Student Login</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input type="text" value={username} onChange={handleUsernameChange} />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={handlePasswordChange} />
-                </label>
-                <br />
-                <button type="submit">Login</button>
-                <p> New User? <span> Register here. </span> </p>
-            </form>
-        </div>
-    );
-};
-
-export default Student;
+export default Student

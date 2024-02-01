@@ -10,17 +10,20 @@ const LoginOptions = () => {
     };
 
     return (
-        <div className={s.loginButton}>
+        <div className={s.dropdownButton}>
             <button className={s.toggleButton} onClick={toggleDropdown}>
                 Login
             </button>
             {isOpen && (
-            <ul className={s.loginDropdown}>
+            <ul className={s.dropdown}>
                 <li className={s.dropdownItem}>
                     <Link className={s.dropdownLink} to="/studentlogin" onClick={toggleDropdown}>Student Login</Link>
                 </li>
                 <li className={s.dropdownItem}>
                     <Link className={s.dropdownLink} to="/adminlogin" onClick={toggleDropdown}>Admin Login</Link>
+                </li>
+                <li className={s.dropdownItem}>
+                    <Link className={s.dropdownLink} to="/facultylogin" onClick={toggleDropdown}>Faculty Login</Link>
                 </li>
             </ul>
             )}
