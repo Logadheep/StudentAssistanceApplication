@@ -1,0 +1,257 @@
+.dashboard {
+    height: 100%;
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: relative;
+    padding: 0px;
+    bottom: 10vh;
+}
+
+.addData {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 50vw; */
+}
+
+.addData label {
+    font-size: 1rem;
+    color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    border: #ddd 1px solid;
+    border-radius: 10px;
+    margin: 10px;
+    width: 400px;
+}
+.addData input {
+    width: fit-content;
+    padding: 12px 20px;
+    margin: 20px ;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 10px;
+}
+
+.addData button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.addData button:hover {
+    background-color: #1a1717;
+    color: #fff;
+}
+
+.dashboard header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.dashboard header>button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #ffffff;
+    padding: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: #ddd 1px solid;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.courseSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.courseSection h3 {
+    margin: 0;
+    padding: 20px;
+}
+
+.courseSection table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.courseSection table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.courseSection table thead {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+.courseSection button {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.courseSection button:hover {
+    background-color: #1a1717;
+    color: #fff;
+}
+
+.gradeSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.gradeSection table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.gradeSection table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.gradeSection table thead {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+.gradeSection button {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.gradeSection button:hover {
+    background-color: #1a1717;
+    color: #fff;
+}
+
+/* Admin panel */
+.userManagement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.userManagement h3 {
+    margin: 0;
+    padding: 20px;
+}
+
+.userManagement table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.userManagement table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.userManagement table thead {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+.userManagement button {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.courseManagement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.courseManagement table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.courseManagement table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.courseManagement table thead {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+/* faculty dashboard */
+.studentManagement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding: 0px;
+}
+
+.studentManagement table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+.studentManagement table td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.studentManagement table thead {
+    background-color: #f2f2f2;
+    color: #000;
+}
