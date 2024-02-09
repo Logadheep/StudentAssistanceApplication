@@ -110,7 +110,7 @@ const AdminPanel = () => {
 					</tbody>
 				</table>
 				<form onSubmit={addUser} className={s.addData}>
-					<label> User ID: {users.length}</label>
+					<label> User ID: {users.length+1}</label>
 					<input
 						type="text"
 						name="username"
