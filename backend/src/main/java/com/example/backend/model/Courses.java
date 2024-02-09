@@ -9,15 +9,14 @@ public class Courses {
 
     @Id
     @GeneratedValue
-    private int aid;
+    private int cid;
     private String title;
     private String description;
-    private String imgurl;
-    public int getAid() {
-        return aid;
+    public int getCid() {
+        return cid;
     }
-    public void setAid(int aid) {
-        this.aid = aid;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
     public String getTitle() {
         return title;
@@ -30,12 +29,6 @@ public class Courses {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-    public String getImgurl() {
-        return imgurl;
-    }
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
     }
     
     

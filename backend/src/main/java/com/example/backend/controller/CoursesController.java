@@ -23,9 +23,9 @@ public class CoursesController {
     private CoursesService service;
 
     @PostMapping("/postCourses")
-    public Courses postCourses(@RequestBody Courses activity)
+    public Courses postCourses(@RequestBody Courses courses)
     {
-        return service.postCourses(activity);
+        return service.postCourses(courses);
     }
     @GetMapping("/getCourses")
     public List<Courses> getCourses()
@@ -38,8 +38,8 @@ public class CoursesController {
         service.deleteCourses(id);
     }
     @PutMapping("/updateCourses")
-    public Courses updateCourses(@RequestBody Courses activity)
+    public Courses updateCourses(@RequestBody Courses courses)
     {
-        return service.updateCourses(activity);
+        return service.updateCourses(courses);
     }
 }
