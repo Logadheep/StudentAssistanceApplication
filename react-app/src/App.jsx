@@ -16,13 +16,15 @@ import FacultyDashboard from './components/Dashboard/FacultyDashboard'
 import Courses from './components/HomePage/Courses'
 import About from './components/HomePage/About'
 import Guides from './components/HomePage/Guides'
+import AddCourse from './components/Forms/AddCourse'
+import UpdateCourse from './components/Forms/UpdateCourse'
 // import { withRouter } from 'react-router-dom'
 
 //withRouter(({ location }) 
 const App = () => {
 	// ignore navbar for login and register page
 	const placeNavBarHere = () => {
-		if (location.pathname === '/studentlogin' || location.pathname === '/adminlogin' || location.pathname === '/facultylogin') {
+		if (window.location.pathname === '/studentlogin' || window.location.pathname === '/adminlogin' || window.location.pathname === '/facultylogin') {
 			return null
 		}
 		return <NavBar />
@@ -45,6 +47,8 @@ const App = () => {
 					<Route exact path="/facultydashboard" element={<FacultyDashboard />} />
 					<Route exact path="/adminpanel" element={<AdminPanel />} />
 					<Route exact path="/guides" element={<Guides />} />
+					<Route exact path="/addCourse" element={<AddCourse />} />
+					<Route exact path='/updateCourse/*' element={<UpdateCourse />}/>
 				</Routes>
 			</Router>
 	)

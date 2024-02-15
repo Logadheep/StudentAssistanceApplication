@@ -1,0 +1,61 @@
+/* FILEPATH: /d:/Projects/Adv_App_Development/react-app/src/components/Forms/forms.module.css */
+
+/* Form container */
+.formContainer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 40vw;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 #000;
+    position: relative;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10%);
+
+}
+
+.formLabel {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    justify-content: space-evenly;
+    vertical-align: middle;
+}
+
+/* Form input */
+.formInput {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 0px 30px;
+    margin-bottom: 10px;
+    border-radius: 2%;
+}
+
+/* Form button */
+.formButton {
+    background-color: #777;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Form button hover */
+.formButton:hover {
+    background-color: #999;
+}

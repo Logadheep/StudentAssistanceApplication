@@ -2,43 +2,54 @@ import React, { useState } from 'react';
 
 import s from './entry.module.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const credentials = {
-	'admin': 'password',
-};
+
 const AdminLogin = () => {
-	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
 
-	const handleUsernameChange = (e) => {
-		setUsername(e.target.value);
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
 	};
 
 	const handlePasswordChange = (e) => {
 		setPassword(e.target.value);
 	};
 
-	const handleSubmit = () => {
-		// Add your login logic here
-		if (credentials[username] === password) {
-			// Redirect to admin dashboard
-			alert('Login successful');
-			navigate('/adminpanel')
 
-		} else {
-			// Show error message
-			console.log('Invalid credentials');
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			// const response = await axios.post("http://localhost:8080/api/v1/auth/authenticate", {
+			// 	email: email,
+			// 	password: password,
+			// });
+			// let token = response.data.token;
+			// let user = response.data.id;
+			// // let logged = Date.now() + 3600000; // Set expiration time to 1 hour from now
+			// localStorage.setItem('token', token);
+			// localStorage.setItem('user', JSON.stringify(user));
+			// localStorage.setItem('logged', true);
+
+			// // Check if the cache has expired
+
+			// console.log(response.data);
+			if(email==="admin123@gmail.com"&&password==="admin123")
+			window.location.href = '/adminpanel';
+		} catch (error) {
+			console.error('Error: ', error);
 		}
 	};
 
 	return (
 		<div className={s.form}>
 			<h2>Admin Login</h2>
-			<form onSubmit={handleSubmit} className={s.formfields}>
+			<form className={s.formfields}>
 				<label>
-					Username
-					<input type="text" value={username} onChange={handleUsernameChange} />
+					Email
+					<input type="text" value={email} onChange={handleEmailChange} />
 				</label>
 				<br />
 				<label>
@@ -46,7 +57,7 @@ const AdminLogin = () => {
 					<input type="password" value={password} onChange={handlePasswordChange} />
 				</label>
 				<br />
-				<button type="submit">Login</button>
+				<button type="submit" onClick={handleSubmit}>Login</button>
 			</form>
 		</div>
 	);

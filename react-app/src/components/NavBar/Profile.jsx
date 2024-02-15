@@ -7,7 +7,7 @@ const Profile = () => {
     // Replace with your logic to determine if the user is logged in or not
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+        window.location.href='/';
     };
 
     const handleLogout = () => {
@@ -19,21 +19,8 @@ const Profile = () => {
     return (
         <div className={s.dropdownButton}>
             <button className={s.toggleButton} onClick={toggleDropdown}>
-                Profile
+                Logout
             </button>
-            {isOpen && (
-            <ul className={s.dropdown}>
-                <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/profile" onClick={toggleDropdown}>View Profile</Link>
-                </li>
-                <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/editprofile" onClick={toggleDropdown}>Edit Profile</Link>
-                </li>
-                <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/" onClick={handleLogout}>Logout</Link>
-                </li>
-            </ul>
-            )}
         </div>
     );
 };

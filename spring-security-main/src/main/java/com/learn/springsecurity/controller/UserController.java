@@ -5,6 +5,7 @@ import static org.springframework.http.HttpStatus.EXPECTATION_FAILED;
 import static org.springframework.http.HttpStatus.OK;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping
+    @GetMapping
     public ResponseEntity<BasicResponse<UserResponse>> getAllUser() {
         BasicResponse<UserResponse> response = new BasicResponse<>();
         try {

@@ -11,10 +11,11 @@ import Profile from './Profile';
 
 const NavBar = () => {
     // location.reload();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // Replace with your logic to determine if the user is logged in or not
-    const toggleDropdown = () => {
-        setIsLoggedIn(!isLoggedIn);
+    const checkPage = () => {
+        if (window.location.pathname === '/adminpanel'|| window.location.pathname === '/addcourse' || window.location.pathname === '/updatecourse' || window.location.pathname === '/enquiries'||window.location.pathname === '/studentdashboard'||window.location.pathname === '/facultydashboard'||window.location.pathname==='/updateCourse'||window.location.pathname==='/addCourse') {
+            return true;
+        }
+        return false;
     };
 
     return (
@@ -38,9 +39,9 @@ const NavBar = () => {
                 </li>
             </ul>
             <ul>
-                <li className={s.navbarItem}>
-                    {isLoggedIn ? <Profile /> : <LoginOptions />}
-                </li>
+                {<li className={s.navbarItem}>
+                    {checkPage() ? <Profile /> : <LoginOptions />}
+                </li>}
             </ul>
         </div>
     );

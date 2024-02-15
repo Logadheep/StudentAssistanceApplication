@@ -1,60 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import s from './dashboard.module.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import UpdateCourse from '../Forms/UpdateCourse';
+
 const AdminPanel = () => {
-	// Dummy data for demonstration
-	const [courses, setCourses] = useState([{
-		id: 1,
-		name: 'IoT',
-		teacher: 'John Doe'
-	},
-	{
-		id: 2,
-		name: 'Cloud Computing',
-		teacher: 'Jane Doe'
-	},
-	{
-		id: 3,
-		name: 'BlockChain',
-		teacher: 'John Smith'
-	}]);
+	const navigate = useNavigate();
+	const [courses, setCourses] = useState([]);
+	useEffect(() => {
+		
+		const fetchData = async () => {
+			try {
+			const response = await fetch('http://localhost:8080/getAllCourses');
+			const jsonData = await response.json();
+            setCourses(jsonData);
+            console.log(courses);
+			} catch (error) {
+			console.log(error);
+			}
+		};
+		fetchData();
+	}, []);
 
-	const [users, setUsers] = useState([{
-		id: 1,
-		username: 'johndoe',
-		role: 'Student'
-	},
-	{
-		id: 2,
-		username: 'janedoe',
-		role: 'Admin'
-	},
-	{
-		id: 3,
-		username: 'johnsmith',
-		role: 'Faculty'
-	}]);
+	const [users, setUsers] = useState([]);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('http://localhost:8080/admin/getAllSignIn');
+				const jsonData = await response.json();
+				setUsers(jsonData);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchData();
+	}, []);
 
-	const [newCourse, setNewCourse] = useState({
-		name: '',
-		teacher: ''
-	});
 
-	const [newUser, setNewUser] = useState({
-		username: '',
-		role: ''
-	});
-
-	const handleUserChange = (event) => {
-		const {name, value} = event.target;
-		console.log(name, value);
-		setNewUser({...newUser, [name]: value});
-	};
-
-	const handleCourseChange = (event) => {
-		const { name, value } = event.target;
-		setNewCourse({ ...newCourse, [name]: value});
-	};
+	// const getAllCourses = () => {
+	// 	// Fetch course details for the given course id
+	// 	axios.get(`http://localhost:8080/getAllCourses`)
+	// 		.then((response) => {
+	// 			setCourses(response.data);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error('Error fetching course details', error);
+	// 		});
+	// }
 
 	const addUser = (event) => {
 		event.preventDefault();
@@ -66,24 +59,27 @@ const AdminPanel = () => {
 		});
 	}
 
-	const addCourse = (event) => {
-		event.preventDefault();
-		const id = courses.length + 1;
-		setCourses([...courses, {id: id, ...newCourse}]);
-		setNewCourse({
-			name: '',
-			teacher: ''
-		});
-	}
-
 	const deleteCourse = (id) => {
-		setCourses(courses.filter(course => course.id !== id));
+		axios.delete(`http://localhost:8080/admin/deleteCourses`, {id: id})
+			.then((response) => {
+				console.log(response.data);
+			})
+			.catch((error) => {
+				console.error('Error deleting course details', error);
+			});
+		window.location.reload();
 	}
 
 	const dismissMember = (id) => {
-		setUsers(users.filter(user => user.id !== id));
+		axios.delete(`http://localhost:8080/admin/deleteSignIn?id=${id}`)
+			.then((response) => {
+				console.log(response.data);
+			})
+			.catch((error) => {
+				console.error('Error dismissing member', error);
+			});
 	}
-	return (
+	return ( 
 		<div className={s.dashboard}>
 			<h2>Admin Dashboard</h2>
 
@@ -93,82 +89,54 @@ const AdminPanel = () => {
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Username</th>
-							<th>Role</th>
+							<th>Name</th>
+							<th>Email</th>
 							<th>Dismiss</th>
 						</tr>
 					</thead>
 					<tbody>
 						{users.map(user => (
-							<tr key={user.id}>
-								<td>{user.id}</td>
-								<td>{user.username}</td>
-								<td>{user.role}</td>
+							<tr key={user.admin_id}>
+								<td>{user.admin_id}</td>
+								<td>{user.admin_name}</td>
+								<td>{user.email}</td>
 								<td><button onClick={() => { dismissMember(user.id) }}>Dismiss</button></td>
 							</tr>
 						))}
 					</tbody>
 				</table>
-				<form onSubmit={addUser} className={s.addData}>
-					<label> User ID: {users.length+1}</label>
-					<input
-						type="text"
-						name="username"
-						placeholder='Username'
-						value={newUser.username}
-						onChange={handleUserChange}
-					/>
-					<input
-						type="text"
-						name="role"
-						placeholder="User Role"
-						value={newUser.role}
-						onChange={handleUserChange}
-					/>
-					<button type="submit">Add User</button>
-				</form>
+				<button type="submit">Add User</button>
 			</div>
 
 			<div className={s.courseManagement}>
+			
 				<h3>Course Management</h3>
 				<table>
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Name</th>
+							<th>Title</th>
 							<th>Teacher</th>
+							<td>Fees</td>
 							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
 						{courses.map(course => (
-							<tr key={course.id}>
-								<td>{course.id}</td>
-								<td>{course.name}</td>
-								<td>{course.teacher}</td>
-								<td><button onClick={() => { deleteCourse(course.id) }}>Delete</button></td>
+							<tr key={course.course_id}>
+								<td>{course.course_id}</td>
+								<td>{course.course_name}</td>
+								<td>{course.instructor}</td>
+								<td>{course.fees}</td>
+								<td>
+									<button onClick={() => { deleteCourse(course.course_id) }}>Delete</button>
+									<button onClick={() => { navigate(`/updateCourse?id=${course.course_id}`) }}>Update</button>
+								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
-				<form onSubmit={addCourse} className={s.addData}>
-					<label> Course ID: {courses.length+1}</label>
-					<input
-						type="text"
-						name="name"
-						placeholder='Course Name'
-						value={newCourse.name}
-						onChange={handleCourseChange}
-					/>
-					<input
-						type="text"
-						name="teacher"
-						placeholder='Teacher Name'
-						value={newCourse.teacher}
-						onChange={handleCourseChange}
-					/>
-					<button type="submit">Add Course</button>
-				</form>
+				<button onClick={()=>{navigate('/addCourse')}}>Add Course</button>
 			</div>
 		</div>
 	);

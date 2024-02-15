@@ -17,13 +17,13 @@ const LoginOptions = () => {
             {isOpen && (
             <ul className={s.dropdown}>
                 <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/studentlogin" onClick={toggleDropdown}>Student Login</Link>
+                    <a className={s.dropdownLink} href="/studentlogin" onClick={toggleDropdown}>Student Login</a>
                 </li>
                 <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/adminlogin" onClick={toggleDropdown}>Admin Login</Link>
+                    <a className={s.dropdownLink} href="/adminlogin" onClick={toggleDropdown}>Admin Login</a>
                 </li>
                 <li className={s.dropdownItem}>
-                    <Link className={s.dropdownLink} to="/facultylogin" onClick={toggleDropdown}>Faculty Login</Link>
+                    <a className={s.dropdownLink} href="/facultylogin" onClick={toggleDropdown}>Faculty Login</a>
                 </li>
             </ul>
             )}
