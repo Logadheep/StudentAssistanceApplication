@@ -59,15 +59,33 @@ const AdminPanel = () => {
 		});
 	}
 
-	const deleteCourse = (id) => {
-		axios.delete(`http://localhost:8080/admin/deleteCourses`, {id: id})
-			.then((response) => {
-				console.log(response.data);
-			})
-			.catch((error) => {
-				console.error('Error deleting course details', error);
-			});
-		window.location.reload();
+	// const deleteCourse = (id) => {
+	// 	console.log(id);
+	// 	try {
+	// 		await axios.delete(`http://localhost:8080/admin/deleteCourses/${id}`);
+	// 		console.log('Course deleted successfully');
+	// 	} catch (error) {
+	// 		console.error('Error deleting course details', error);
+	// 	}
+	// 	window.location.reload();
+	// 	// axios.delete(`http://localhost:8080/admin/deleteCourses/${id}`)
+	// 	// 	.then((response) => {
+	// 	// 		console.log(response.data);
+	// 	// 	})
+	// 	// 	.catch((error) => {
+	// 	// 		console.error('Error deleting course details', error);
+	// 	// 	});
+	// 	// window.location.reload();
+	// }
+
+	const deleteCourse = async (id) => {
+		try {
+			await axios.delete(`http://localhost:8080/admin/deleteCourses/${id}`);
+			console.log('Course deleted successfully');
+		} catch (error) {
+			console.error('Error deleting course details', error);
+		}
+		// window.location.reload();
 	}
 
 	const dismissMember = (id) => {

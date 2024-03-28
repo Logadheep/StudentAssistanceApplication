@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import s from './dashboard.module.css';
+import EnquiryForm from '../Forms/EnquiryForm';
 
 // { username, courses, grades }
 const StudentDashboard = () => {
@@ -14,18 +15,27 @@ const StudentDashboard = () => {
 		{ courseId: 1, courseName: 'Course 1', grade: 'A' },
 		{ courseId: 2, courseName: 'Course 2', grade: 'B' }
 	];
+	const [seen, setSeen] = useState(false)
+
+    function togglePop () {
+        setSeen(!seen);
+    };
 
 	const unenrollCourse = (courseId) => {
 		setCourses(courses.filter(course => course.id !== courseId));
 	}
 
-	const enrollCourse = (courseId) => {
+	const enrollCourse = () => {
 		// navigate(`/student/enroll/${courseId}`);
 		navigate('/courses');
 	}
 
 	const gotoCourse = (courseId) => {
-		navigate(`/student/course/${courseId}`);
+		// navigate(`/student/course/${courseId}`);
+	}
+	
+	const addEnquiry = () => {
+		navigate(`/enquiry`);
 	}
 
     return (
@@ -78,6 +88,10 @@ const StudentDashboard = () => {
                     </tbody>
                 </table>
             </div>
+			<div>
+				{/*seen ? <EnquiryForm toggle={addEnquiry} /> : null*/}
+				<button className={s.formButton} onClick={addEnquiry}> Add Enquiry</button>
+			</div>
         </div>
     );
 };

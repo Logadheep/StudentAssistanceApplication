@@ -2,8 +2,10 @@ import React,  {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import s from './home.module.css'; 
+import { useNavigate } from 'react-router-dom';
 const Courses = () => {
     const [courses, setCourses] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         
         const fetchData = async () => {
@@ -22,7 +24,9 @@ const Courses = () => {
     const handleApply = (courseId) => {
         // Handle apply button click for the given course id
         alert(`Applying for course ${courseId}`);
+        navigate('/studentdashboard')
         // redirect to form
+        
     };
 
     return (

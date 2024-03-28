@@ -45,8 +45,8 @@ public class CoursesService {
 
     public void deleteCoursesDetails(int courseId) {
         // EnquiryModel
-        courseRepository.deleteByEnquiryId(courseId);
-        courseRepository.deleteByEnrollId(courseId);
+        // courseRepository.deleteByEnquiryId(courseId);
+        // courseRepository.deleteByEnrollId(courseId);
         courseRepository.deleteByCourseId(courseId);
     }
 }

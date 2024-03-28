@@ -45,8 +45,8 @@ public class CoursesController{
 	public CoursesModel updateCoursesDetails(@PathVariable int id,@RequestBody CoursesModel sign) {
 		return ServiceImp.updateCoursesDetails(id,sign);
 	}
-	@DeleteMapping("/admin/deleteCourses")
-	public String deleteCoursesDetails(@RequestParam int id) {
+	@DeleteMapping("/admin/deleteCourses/{id}")
+	public String deleteCoursesDetails(@PathVariable int id) {
 		
 		ServiceImp.deleteCoursesDetails(id);
 		return "Courses Details Deleted !";
