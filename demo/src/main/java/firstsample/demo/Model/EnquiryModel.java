@@ -22,18 +22,16 @@ public class EnquiryModel {
    public String description;
    public String reply;
    
-   @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id")
-    public UserModel user;
+    public String email;
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="course_id")
     public CoursesModel courses;
-    public UserModel getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setUser(String email) {
+        this.email = email;
     }
     public CoursesModel getCourses() {
         return courses;

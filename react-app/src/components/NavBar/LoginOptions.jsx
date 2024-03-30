@@ -22,9 +22,6 @@ const LoginOptions = () => {
                 <li className={s.dropdownItem}>
                     <a className={s.dropdownLink} href="/adminlogin" onClick={toggleDropdown}>Admin Login</a>
                 </li>
-                <li className={s.dropdownItem}>
-                    <a className={s.dropdownLink} href="/facultylogin" onClick={toggleDropdown}>Faculty Login</a>
-                </li>
             </ul>
             )}
         </div>

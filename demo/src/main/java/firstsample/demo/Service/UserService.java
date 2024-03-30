@@ -26,10 +26,10 @@ public class UserService{
 		return (List<User>)signRepo.findAll();
 	}
 
-	// public User findSignInDetails(int roll) {
-	// 	// TODO Auto-generated method stub
-	// 	return signRepo.findById(roll);
-	// }
+	public User findSignInDetails(int roll) {
+		// TODO Auto-generated method stub
+		return signRepo.findById(roll);
+	}
 
 	// public void deleteSignInDetails(int roll) {
 	// 	// TODO Auto-generated method stub

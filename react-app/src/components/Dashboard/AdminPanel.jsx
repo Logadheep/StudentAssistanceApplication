@@ -100,7 +100,7 @@ const AdminPanel = () => {
 	return ( 
 		<div className={s.dashboard}>
 			<h2>Admin Dashboard</h2>
-
+			<button onClick={()=>{navigate('/enquiries')}}>View Enquiries</button>
 			<div className={s.userManagement}>
 				<h3>User Management</h3>
 				<table>

@@ -19,6 +19,7 @@ import Guides from './components/HomePage/Guides'
 import AddCourse from './components/Forms/AddCourse'
 import UpdateCourse from './components/Forms/UpdateCourse'
 import EnquiryForm from './components/Forms/EnquiryForm'
+import Enquiry from './components/HomePage/Enquiry'
 // import { withRouter } from 'react-router-dom'
 
 //withRouter(({ location }) 
@@ -51,6 +52,7 @@ const App = () => {
 					<Route exact path="/addCourse" element={<AddCourse />} />
 					<Route exact path='/updateCourse/*' element={<UpdateCourse />}/>
 					<Route exact path='/enquiry/*' element={<EnquiryForm />}/>
+					<Route exact path='/enquiries/*' element={<Enquiry />}/>
 				</Routes>
 			</Router>
 	)

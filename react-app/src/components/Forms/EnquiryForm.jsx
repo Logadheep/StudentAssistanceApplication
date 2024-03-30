@@ -28,10 +28,10 @@ const EnquiryForm = (props) => {
         }
     };
 
-    const changeCourse = async (id) => {
+    const changeCourse = (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/getCoursesById/${id}`);
-            const jsonData = await response.json();
+            const response = fetch(`http://localhost:8080/getCoursesById/${id}`);
+            const jsonData = response.json();
             setCourse(jsonData);
             setEnquiry({...enquiry, course: course});
             console.log(course);
